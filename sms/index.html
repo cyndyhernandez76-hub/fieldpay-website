@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eBerry Harvest Company — SMS Notifications Program</title>
+<meta name="description" content="eBerry Harvest Company SMS notifications program — opt-in, privacy policy, terms, sample messages, and STOP/HELP keywords for our H-2A worker paystub and HR alerts.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wheat: #d4a72c;
+    --wheat-deep: #b8861f;
+    --leaf: #4a8a3f;
+    --leaf-deep: #2d5a2d;
+    --leaf-darker: #1f3a1f;
+    --soil: #2a2422;
+    --cream: #faf6ed;
+    --cream-warm: #f4ead2;
+    --paper: #ffffff;
+    --gold: #c9a961;
+    --muted: #6b5d4a;
+    --line: rgba(74, 138, 63, 0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--soil);
+    background: var(--cream);
+    line-height: 1.65;
+  }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.2; color: var(--leaf-darker); }
+  a { color: var(--leaf-deep); }
+  a:hover { color: var(--leaf); }
+
+  /* Top bar */
+  .topbar {
+    background: var(--leaf-darker);
+    color: var(--cream);
+    padding: 14px 6%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .topbar .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--cream);
+  }
+  .topbar .brand .accent { color: var(--wheat); }
+  .topbar .home-link {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 13px;
+    border: 1px solid rgba(250,246,237,0.3);
+    padding: 7px 14px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .topbar .home-link:hover { background: rgba(250,246,237,0.1); color: var(--cream); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--leaf-deep), var(--leaf-darker));
+    color: var(--cream);
+    padding: 70px 6% 60px;
+    text-align: center;
+  }
+  .hero h1 {
+    color: var(--cream);
+    font-size: clamp(36px, 5vw, 56px);
+    max-width: 900px; margin: 0 auto 18px;
+  }
+  .hero .sub {
+    color: rgba(250,246,237,0.88);
+    font-size: clamp(16px, 1.6vw, 19px);
+    max-width: 760px; margin: 0 auto 8px;
+  }
+  .hero .pill {
+    display: inline-block;
+    background: rgba(212, 167, 44, 0.2);
+    color: var(--wheat);
+    padding: 6px 16px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    border: 1px solid rgba(212, 167, 44, 0.4);
+  }
+
+  /* Layout */
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 50px 6% 80px;
+  }
+  section {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 38px 42px;
+    margin-bottom: 26px;
+    box-shadow: 0 1px 3px rgba(45, 90, 45, 0.04);
+  }
+  section h2 {
+    font-size: clamp(26px, 3vw, 34px);
+    margin-bottom: 6px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--wheat);
+    display: inline-block;
+  }
+  section .lede {
+    color: var(--muted);
+    margin-bottom: 20px;
+    margin-top: 8px;
+  }
+  section h3 {
+    font-size: 22px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: var(--leaf-deep);
+  }
+  section h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--leaf);
+    margin-top: 18px;
+    margin-bottom: 6px;
+  }
+  section p { margin-bottom: 12px; }
+  section ul, section ol { margin: 8px 0 14px 22px; }
+  section li { margin-bottom: 6px; }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 16px;
+  }
+  @media (max-width: 720px) {
+    .grid-2 { grid-template-columns: 1fr; gap: 18px; }
+    section { padding: 26px 22px; }
+    .container { padding: 30px 4% 60px; }
+  }
+
+  .lang-col h3 {
+    margin-top: 0;
+    color: var(--leaf-deep);
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 6px;
+  }
+  .lang-col h3 .flag {
+    display: inline-block;
+    background: var(--wheat);
+    color: var(--leaf-darker);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 8px;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Sample message bubbles */
+  .sample {
+    background: var(--cream-warm);
+    border-left: 4px solid var(--leaf);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 14px 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--soil);
+    word-break: break-word;
+  }
+  .sample .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--leaf);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* Keyword table */
+  table.keywords {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  table.keywords th, table.keywords td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  table.keywords th {
+    background: var(--cream-warm);
+    color: var(--leaf-darker);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  table.keywords td.kw {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--leaf-deep);
+  }
+
+  /* CTA highlight */
+  .cta-box {
+    background: linear-gradient(135deg, rgba(212, 167, 44, 0.12), rgba(74, 138, 63, 0.10));
+    border: 1px solid var(--wheat);
+    border-left: 6px solid var(--wheat-deep);
+    padding: 22px 26px;
+    border-radius: 6px;
+    margin: 18px 0;
+  }
+  .cta-box h4 { margin-top: 0; color: var(--wheat-deep); }
+
+  /* Consent form image */
+  .form-img-wrap {
+    margin: 22px 0;
+    text-align: center;
+  }
+  .form-img-wrap img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: 0 4px 18px rgba(45, 90, 45, 0.10);
+  }
+  .form-img-wrap .caption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* Identity card */
+  .id-card {
+    background: var(--cream-warm);
+    border-radius: 6px;
+    padding: 20px 24px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .id-card strong { color: var(--leaf-darker); }
+
+  /* Disclosure */
+  .disclosure {
+    background: var(--cream-warm);
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--soil);
+    margin: 10px 0;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--leaf-darker);
+    color: rgba(250,246,237,0.85);
+    padding: 36px 6%;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  footer a { color: var(--wheat); }
+  footer .small { font-size: 12px; color: rgba(250,246,237,0.6); margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">eBerry Harvest <span class="accent">Company</span></div>
+  <a class="home-link" href="../">← FieldPay Solutions home</a>
+</div>
+
+<div class="hero">
+  <div class="pill">SMS Notifications Program</div>
+  <h1>eBerry Harvest Company SMS Program</h1>
+  <p class="sub">Weekly paystub-ready notifications and HR alerts for our H-2A agricultural workers — bilingual (English / Spanish), opt-in only, with full TCPA compliance.</p>
+</div>
+
+<div class="container">
+
+  <!-- 1. WHO WE ARE -->
+  <section id="who">
+    <h2>1. Who We Are</h2>
+    <div class="id-card">
+      <strong>eBerry Harvest Company</strong><br>
+      H-2A agricultural employer headquartered in Atlanta, Georgia, United States<br>
+      Operating across multiple farm locations across the southeastern and northeastern U.S.<br><br>
+      <strong>Contact for SMS program:</strong><br>
+      Attn: HR / SMS Program<br>
+      Email: <a href="mailto:cyndyhernandez@eberryharvest.com">cyndyhernandez@eberryharvest.com</a>
+    </div>
+  </section>
+
+  <!-- 2. WHAT MESSAGES WE SEND -->
+  <section id="program">
+    <h2>2. What Messages We Send</h2>
+    <p>The eBerry SMS notifications program is used <strong>exclusively to communicate with our own active H-2A workers</strong> about their pay and HR records. We do not solicit, market, or send commercial messages.</p>
+    <h3>Message types</h3>
+    <ul>
+      <li><strong>Weekly paystub-ready notifications</strong> — a link to the worker's individual, secure paystub PDF after each weekly payroll close.</li>
+      <li><strong>HR alerts</strong> — expired document reminders, schedule changes, payroll-related questions.</li>
+      <li><strong>Opt-in confirmation</strong> — one-time message asking the worker to reply JOIN or COMENZAR after the paper consent form is on file.</li>
+      <li><strong>Opt-out and help replies</strong> — confirmation messages when a worker replies STOP, HELP, or any of the supported keywords.</li>
+    </ul>
+    <h3>Message frequency</h3>
+    <p>Approximately <strong>1 to 2 messages per week</strong>, primarily after the weekly Friday payroll close. Frequency may increase temporarily during payroll corrections or HR-driven alerts.</p>
+  </section>
+
+  <!-- 3. THE CTA — HOW WORKERS OPT IN (the most important section for TCR review) -->
+  <section id="opt-in">
+    <h2>3. How Workers Opt In (Call to Action)</h2>
+    <p class="lede">eBerry Harvest does not advertise this SMS program publicly. Enrollment happens entirely in person, during H-2A onboarding at the farm office, using the bilingual paper consent form shown below.</p>
+
+    <div class="cta-box">
+      <h4>The opt-in process — three steps</h4>
+      <ol>
+        <li><strong>Verbal explanation.</strong> During in-person H-2A onboarding intake at the farm office, eBerry HR staff explain the SMS program to each new-hire worker in their preferred language (English or Spanish). The explanation covers what messages will be sent, message frequency (1–2 per week), that message and data rates may apply, and how to opt out.</li>
+        <li><strong>Signed paper consent form.</strong> The worker signs the bilingual <em>eBerry SMS Consent Form</em> (image below) authorizing eBerry to send SMS and MMS messages to the mobile number provided on their employment application. An eBerry HR witness countersigns. The original is retained in the worker's personnel file.</li>
+        <li><strong>One-time confirmation SMS (double opt-in).</strong> After the signed paper consent is on file, eBerry sends a single confirmation SMS to the worker's mobile number asking them to reply <strong>JOIN</strong> or <strong>COMENZAR</strong>. Only workers who reply affirmatively are added to the active SMS list. Workers who do not reply are not enrolled.</li>
+      </ol>
+    </div>
+
+    <h3>Bilingual paper consent form (image)</h3>
+    <p>The image below is the exact consent form every eBerry SMS recipient signs in person before any messages are sent.</p>
+    <div class="form-img-wrap">
+      <img src="consent-form.png" alt="eBerry Harvest Company SMS Consent Form — bilingual English/Spanish authorization signed by every worker before enrollment in the SMS program">
+      <div class="caption">eBerry SMS Consent Form — English / Español. Form revision: 2026-05-25. Retained in worker file for 7 years post-employment.</div>
+    </div>
+
+    <h3>Why we do not use a web opt-in form</h3>
+    <p>Our workforce is composed of H-2A seasonal agricultural workers who do not have routine internet or email access while at the farm. In-person verbal explanation plus signed paper consent during onboarding is the legally compliant, language-accessible, and operationally appropriate method for this audience. The follow-up confirmation SMS provides the second affirmative consent step (double opt-in).</p>
+  </section>
+
+  <!-- 4. SAMPLE MESSAGES -->
+  <section id="samples">
+    <h2>4. Sample Messages</h2>
+    <p class="lede">Examples of the actual messages eBerry sends to enrolled workers.</p>
+
+    <div class="sample">
+      <span class="label">Sample 1 — Weekly paystub notification (Spanish)</span>
+      Hola Juan, su recibo de pago de la semana terminando 05/24/2026 esta listo. Bruto: $850.00 Neto: $720.50. Ver PDF: https://opdwtijyropzoyeseoij.supabase.co/storage/v1/object/sign/paystubs/abc123. Responda CANCELAR para no recibir mas mensajes. AYUDA para asistencia.
+    </div>
+
+    <div class="sample">
+      <span class="label">Sample 2 — Enrollment confirmation invite (English)</span>
+      Hi, this is eBerry Harvest. We send weekly paystub notifications by text message. Reply JOIN to enroll, or STOP to decline. Reply HELP for help. Msg &amp; data rates may apply. Msg frequency: 1/week.
+    </div>
+
+    <div class="sample">
+      <span class="label">Sample 3 — Weekly paystub notification (English)</span>
+      Hi Maria, your paystub for week ending 05/24/2026 is ready. Gross: $920.00 Net: $785.40. View PDF: https://opdwtijyropzoyeseoij.supabase.co/storage/v1/object/sign/paystubs/xyz789. Reply STOP to opt out. HELP for help.
+    </div>
+  </section>
+
+  <!-- 5. KEYWORDS -->
+  <section id="keywords">
+    <h2>5. Opt-Out and Help Keywords</h2>
+    <p>Workers may opt out or request help at any time by replying to any eBerry SMS with one of the following keywords. Keywords are case-insensitive and supported in English and Spanish.</p>
+
+    <table class="keywords">
+      <thead>
+        <tr><th>Action</th><th>Keywords accepted</th><th>What happens</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Opt out</strong></td>
+          <td class="kw">STOP · CANCELAR · UNSUBSCRIBE · END · QUIT · CANCEL · NO</td>
+          <td>One-time confirmation sent; no further messages.</td>
+        </tr>
+        <tr>
+          <td><strong>Get help</strong></td>
+          <td class="kw">HELP · AYUDA · INFO</td>
+          <td>Assistance contact info returned.</td>
+        </tr>
+        <tr>
+          <td><strong>Re-subscribe</strong></td>
+          <td class="kw">JOIN · COMENZAR · START · SI · YES</td>
+          <td>Worker is re-enrolled after previously opting out (after paper consent reconfirmed with HR).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="disclosure">
+      <strong>Message and data rates may apply.</strong> eBerry Harvest Company does not charge for messages, but standard carrier rates from your mobile provider apply to incoming and outgoing text messages. Message frequency: approximately 1–2 messages per week.
+    </div>
+  </section>
+
+  <!-- 6. PRIVACY POLICY -->
+  <section id="privacy">
+    <h2>6. SMS Privacy Policy</h2>
+    <p class="lede">Effective Date: May 25, 2026 · Last Updated: May 25, 2026</p>
+
+    <div class="grid-2">
+      <div class="lang-col">
+        <h3><span class="flag">EN</span>English</h3>
+
+        <h4>1. Who We Are</h4>
+        <p>This SMS Privacy Policy (“Policy”) describes how eBerry Harvest Company (“eBerry”, “we”, “us”, “our”) collects, uses, and protects the mobile phone number and related information of workers who participate in our SMS notification program.</p>
+        <p>eBerry Harvest Company is an H-2A agricultural employer headquartered in Georgia, United States, operating across multiple farm locations.</p>
+
+        <h4>2. What Information We Collect</h4>
+        <p>Through the eBerry SMS program we collect only:</p>
+        <ul>
+          <li>The worker's mobile phone number as provided on their employment application</li>
+          <li>The worker's preferred language (English or Spanish)</li>
+          <li>A timestamp and record of every text message sent to or received from the worker</li>
+          <li>A record of every consent event (opt-in, opt-out, help request)</li>
+        </ul>
+        <p>We do not collect mobile location data, contacts, device identifiers, browser history, or any other information through the SMS program.</p>
+
+        <h4>3. How We Use Your Information</h4>
+        <p>We use your mobile phone number solely to:</p>
+        <ul>
+          <li>Send weekly paystub-ready notifications with a secure link to your individual paystub PDF</li>
+          <li>Send HR alerts (expired documents, schedule changes, payroll questions)</li>
+          <li>Send one-time opt-in confirmation messages</li>
+          <li>Send opt-out confirmation and help reply messages when you reply with a keyword</li>
+          <li>Maintain an internal audit trail required for TCPA compliance</li>
+        </ul>
+
+        <h4>4. We Do Not Sell or Share Your Mobile Number</h4>
+        <p>eBerry Harvest Company does not sell, rent, lease, or share mobile phone numbers or any SMS-related data with third parties for marketing or any other purpose. Mobile information is shared only with our SMS delivery vendor (Twilio Inc.) solely to transmit messages, and with our internal HRIS database to maintain consent records.</p>
+        <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong></p>
+
+        <h4>5. Message Frequency</h4>
+        <p>Workers enrolled in the SMS program typically receive 1 to 2 messages per week, primarily after weekly payroll close. Frequency may increase temporarily during peak payroll events (corrections, reissues) or HR-driven alerts (document expirations).</p>
+
+        <h4>6. Message and Data Rates</h4>
+        <p>Message and data rates may apply. eBerry Harvest Company does not charge workers for messages, but standard carrier rates from your mobile provider apply to incoming and outgoing text messages.</p>
+
+        <h4>7. How To Opt Out</h4>
+        <p>You may opt out at any time by replying any of the following keywords to any SMS from eBerry Harvest:</p>
+        <p><strong>STOP · CANCELAR · UNSUBSCRIBE · END · QUIT · CANCEL · NO</strong></p>
+        <p>You will receive a one-time confirmation that you have been unsubscribed, after which no further messages will be sent.</p>
+
+        <h4>8. How To Get Help</h4>
+        <p>Reply <strong>HELP</strong> or <strong>AYUDA</strong> or <strong>INFO</strong> to any SMS from eBerry Harvest to receive assistance contact information.</p>
+        <p>For additional help, contact eBerry Harvest HR at the address below.</p>
+
+        <h4>9. Data Retention</h4>
+        <p>Consent records and message logs are retained in eBerry's internal HRIS database for the duration of the worker's employment plus seven (7) years thereafter, to meet H-2A recordkeeping and TCPA compliance requirements.</p>
+
+        <h4>10. Security</h4>
+        <p>SMS-related data is stored in a secure database (Supabase, hosted on AWS) with role-based access control, encryption at rest and in transit, and access limited to authorized eBerry HR and payroll staff.</p>
+
+        <h4>11. Changes to This Policy</h4>
+        <p>We may update this Policy from time to time. The current version will always be available at this URL.</p>
+
+        <h4>12. Contact Us</h4>
+        <p>For questions about this Policy or to exercise any rights described above, contact:<br>
+        eBerry Harvest Company<br>
+        Attn: HR / SMS Privacy<br>
+        Email: <a href="mailto:cyndyhernandez@eberryharvest.com">cyndyhernandez@eberryharvest.com</a></p>
+      </div>
+
+      <div class="lang-col">
+        <h3><span class="flag">ES</span>Español</h3>
+
+        <h4>1. Quiénes Somos</h4>
+        <p>Esta Política de Privacidad de SMS (“Política”) describe cómo eBerry Harvest Company (“eBerry”, “nosotros”) recopila, usa y protege el número de teléfono móvil y la información relacionada de los trabajadores que participan en nuestro programa de notificaciones por SMS.</p>
+        <p>eBerry Harvest Company es un empleador agrícola H-2A con sede en Georgia, Estados Unidos, que opera en varias ubicaciones agrícolas.</p>
+
+        <h4>2. Qué Información Recopilamos</h4>
+        <p>A través del programa de SMS de eBerry recopilamos únicamente:</p>
+        <ul>
+          <li>El número de teléfono móvil del trabajador proporcionado en su solicitud de empleo</li>
+          <li>El idioma preferido del trabajador (inglés o español)</li>
+          <li>Una fecha/hora y registro de cada mensaje de texto enviado o recibido</li>
+          <li>Un registro de cada evento de consentimiento (inscripción, cancelación, solicitud de ayuda)</li>
+        </ul>
+        <p>No recopilamos datos de ubicación, contactos, identificadores del dispositivo, historial del navegador, ni ninguna otra información a través del programa de SMS.</p>
+
+        <h4>3. Cómo Usamos Su Información</h4>
+        <p>Usamos su número de teléfono móvil únicamente para:</p>
+        <ul>
+          <li>Enviar notificaciones semanales de que su recibo de pago está listo, con un enlace seguro al PDF de su recibo</li>
+          <li>Enviar alertas de Recursos Humanos (documentos vencidos, cambios de horario, preguntas de nómina)</li>
+          <li>Enviar un mensaje único de confirmación de inscripción</li>
+          <li>Enviar mensajes de confirmación de cancelación y respuestas de ayuda cuando responde con una palabra clave</li>
+          <li>Mantener un registro de auditoría interno requerido para el cumplimiento de TCPA</li>
+        </ul>
+
+        <h4>4. No Vendemos ni Compartimos Su Número Móvil</h4>
+        <p>eBerry Harvest Company no vende, alquila, arrenda ni comparte números de teléfono móvil ni datos relacionados con SMS con terceros para fines de marketing ni ningún otro propósito. La información móvil se comparte únicamente con nuestro proveedor de envío de SMS (Twilio Inc.) con el único propósito de transmitir los mensajes, y con nuestra base de datos interna de HRIS para mantener los registros de consentimiento.</p>
+        <p><strong>Ninguna información móvil será compartida con terceros ni afiliados para fines de marketing o promocionales.</strong></p>
+
+        <h4>5. Frecuencia de Mensajes</h4>
+        <p>Los trabajadores inscritos en el programa de SMS típicamente reciben 1 a 2 mensajes por semana, principalmente después del cierre semanal de nómina. La frecuencia puede aumentar temporalmente durante eventos pico de nómina (correcciones, reemisiones) o alertas de Recursos Humanos (vencimientos de documentos).</p>
+
+        <h4>6. Tarifas de Mensajes y Datos</h4>
+        <p>Pueden aplicar tarifas estándar de mensajes y datos. eBerry Harvest Company no cobra a los trabajadores por los mensajes, pero su proveedor de telefonía móvil puede cobrar tarifas estándar por mensajes de texto entrantes y salientes.</p>
+
+        <h4>7. Cómo Cancelar la Suscripción</h4>
+        <p>Puede cancelar su suscripción en cualquier momento respondiendo cualquiera de las siguientes palabras clave a cualquier SMS de eBerry Harvest:</p>
+        <p><strong>STOP · CANCELAR · UNSUBSCRIBE · END · QUIT · CANCEL · NO</strong></p>
+        <p>Recibirá una confirmación única de que ha sido dado de baja, después de lo cual no se enviarán más mensajes.</p>
+
+        <h4>8. Cómo Obtener Ayuda</h4>
+        <p>Responda <strong>HELP</strong> o <strong>AYUDA</strong> o <strong>INFO</strong> a cualquier SMS de eBerry Harvest para recibir información de contacto de asistencia.</p>
+        <p>Para ayuda adicional, comuníquese con Recursos Humanos de eBerry Harvest en la dirección a continuación.</p>
+
+        <h4>9. Retención de Datos</h4>
+        <p>Los registros de consentimiento y los registros de mensajes se conservan en la base de datos interna de HRIS de eBerry durante la duración del empleo del trabajador más siete (7) años posteriores, para cumplir con los requisitos de mantenimiento de registros H-2A y de cumplimiento de TCPA.</p>
+
+        <h4>10. Seguridad</h4>
+        <p>Los datos relacionados con SMS se almacenan en una base de datos segura (Supabase, alojada en AWS) con control de acceso basado en roles, cifrado en reposo y en tránsito, y acceso limitado al personal autorizado de Recursos Humanos y nómina de eBerry.</p>
+
+        <h4>11. Cambios a Esta Política</h4>
+        <p>Podemos actualizar esta Política de vez en cuando. La versión actual siempre estará disponible en esta URL.</p>
+
+        <h4>12. Contáctenos</h4>
+        <p>Para preguntas sobre esta Política o para ejercer cualquiera de los derechos descritos anteriormente, comuníquese con:<br>
+        eBerry Harvest Company<br>
+        A la atención de: Recursos Humanos / Privacidad de SMS<br>
+        Correo electrónico: <a href="mailto:cyndyhernandez@eberryharvest.com">cyndyhernandez@eberryharvest.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. TERMS -->
+  <section id="terms">
+    <h2>7. SMS Terms and Conditions</h2>
+    <p class="lede">Effective Date: May 25, 2026 · Last Updated: May 25, 2026</p>
+
+    <div class="grid-2">
+      <div class="lang-col">
+        <h3><span class="flag">EN</span>English</h3>
+
+        <h4>1. Acceptance of Terms</h4>
+        <p>By signing the eBerry SMS Consent Form during your onboarding intake at eBerry Harvest Company (“eBerry”, “we”, “us”) and by replying with the affirmative keyword (JOIN or COMENZAR) to our one-time confirmation invite, you agree to these Terms and Conditions (“Terms”) governing the eBerry SMS notification program (the “Program”).</p>
+
+        <h4>2. Eligibility</h4>
+        <p>The Program is available only to active workers of eBerry Harvest Company who:</p>
+        <ul>
+          <li>Are at least 18 years of age</li>
+          <li>Have provided a valid US mobile phone number capable of receiving SMS and MMS messages</li>
+          <li>Have completed the H-2A onboarding intake including signed SMS Consent Form</li>
+        </ul>
+
+        <h4>3. Description of the Program</h4>
+        <p>The Program sends:</p>
+        <ul>
+          <li>Weekly paystub-ready notifications containing a link to your individual, secure paystub PDF for each completed pay period</li>
+          <li>HR alerts including expired document reminders, schedule changes, and payroll-related communications</li>
+          <li>One-time opt-in confirmation messages after you reply to the enrollment invite</li>
+          <li>Opt-out confirmation and help-reply messages when you reply with one of the keywords listed in Section 6</li>
+        </ul>
+        <p>Messages are delivered as SMS or MMS depending on content. If MMS delivery fails, the same content is automatically re-sent as an SMS with a link to the PDF.</p>
+
+        <h4>4. Message Frequency</h4>
+        <p>You will typically receive 1 to 2 messages per week, primarily after the weekly payroll close. Frequency may increase temporarily during payroll corrections, reissues, or HR-driven alerts.</p>
+
+        <h4>5. Message and Data Rates</h4>
+        <p>Message and data rates may apply. eBerry Harvest Company does not charge for messages, but standard carrier rates from your mobile provider apply to incoming and outgoing text messages. Contact your mobile carrier for details about your plan.</p>
+
+        <h4>6. Opt-Out and Help Keywords</h4>
+        <p>To opt out of the Program at any time, reply to any eBerry SMS with one of the following keywords:</p>
+        <p><strong>STOP · CANCELAR · UNSUBSCRIBE · END · QUIT · CANCEL · NO</strong></p>
+        <p>You will receive a one-time confirmation that you have been unsubscribed. No further messages will be sent except as required by law.</p>
+        <p>To get help, reply with one of: <strong>HELP · AYUDA · INFO</strong>. You will receive assistance contact information.</p>
+        <p>To re-subscribe after opting out, reply with JOIN, COMENZAR, START, SI, or YES, or contact eBerry HR to update your consent on file.</p>
+
+        <h4>7. Carriers</h4>
+        <p>Carriers including AT&amp;T, Verizon, T-Mobile, Sprint, US Cellular, and others are not liable for delayed or undelivered messages.</p>
+
+        <h4>8. Privacy</h4>
+        <p>Use of the Program is governed by our SMS Privacy Policy, above on this page. We do not sell, rent, lease, or share your mobile phone number with third parties for marketing or any other purpose.</p>
+
+        <h4>9. Changes to the Terms</h4>
+        <p>We may update these Terms from time to time. Continued participation in the Program after changes constitutes acceptance of the updated Terms. The current version is always available at this URL.</p>
+
+        <h4>10. Termination of the Program</h4>
+        <p>eBerry Harvest reserves the right to modify, suspend, or terminate the Program at any time. If the Program ends, we will send a final notification to all active subscribers.</p>
+
+        <h4>11. Governing Law</h4>
+        <p>These Terms are governed by the laws of the State of Georgia, United States, without regard to conflict-of-laws principles. Any disputes arising under these Terms shall be resolved in the state or federal courts located in Atlanta, Georgia.</p>
+
+        <h4>12. Contact Us</h4>
+        <p>For questions about these Terms or the Program, contact:<br>
+        eBerry Harvest Company<br>
+        Attn: HR / SMS Program<br>
+        Email: <a href="mailto:cyndyhernandez@eberryharvest.com">cyndyhernandez@eberryharvest.com</a></p>
+      </div>
+
+      <div class="lang-col">
+        <h3><span class="flag">ES</span>Español</h3>
+
+        <h4>1. Aceptación de los Términos</h4>
+        <p>Al firmar el Formulario de Consentimiento de SMS de eBerry durante su proceso de incorporación en eBerry Harvest Company (“eBerry”, “nosotros”) y al responder con la palabra clave afirmativa (JOIN o COMENZAR) a nuestra invitación única de confirmación, usted acepta estos Términos y Condiciones (“Términos”) que rigen el programa de notificaciones por SMS de eBerry (el “Programa”).</p>
+
+        <h4>2. Elegibilidad</h4>
+        <p>El Programa está disponible únicamente para trabajadores activos de eBerry Harvest Company que:</p>
+        <ul>
+          <li>Tengan al menos 18 años de edad</li>
+          <li>Hayan proporcionado un número de teléfono móvil válido de los Estados Unidos capaz de recibir mensajes SMS y MMS</li>
+          <li>Hayan completado el proceso de incorporación H-2A incluyendo el Formulario de Consentimiento de SMS firmado</li>
+        </ul>
+
+        <h4>3. Descripción del Programa</h4>
+        <p>El Programa envía:</p>
+        <ul>
+          <li>Notificaciones semanales de que su recibo de pago está listo, con un enlace al PDF seguro e individual de su recibo de pago para cada período de pago completado</li>
+          <li>Alertas de Recursos Humanos incluyendo recordatorios de documentos vencidos, cambios de horario y comunicaciones relacionadas con la nómina</li>
+          <li>Mensajes únicos de confirmación de inscripción después de que usted responda a la invitación de inscripción</li>
+          <li>Mensajes de confirmación de cancelación y respuestas de ayuda cuando usted responda con una de las palabras clave listadas en la Sección 6</li>
+        </ul>
+        <p>Los mensajes se entregan como SMS o MMS según el contenido. Si la entrega de MMS falla, el mismo contenido se vuelve a enviar automáticamente como SMS con un enlace al PDF.</p>
+
+        <h4>4. Frecuencia de Mensajes</h4>
+        <p>Típicamente recibirá 1 a 2 mensajes por semana, principalmente después del cierre semanal de nómina. La frecuencia puede aumentar temporalmente durante correcciones de nómina, reemisiones o alertas de Recursos Humanos.</p>
+
+        <h4>5. Tarifas de Mensajes y Datos</h4>
+        <p>Pueden aplicar tarifas estándar de mensajes y datos. eBerry Harvest Company no cobra por los mensajes, pero su proveedor de telefonía móvil puede cobrar tarifas estándar por mensajes de texto entrantes y salientes. Contacte a su proveedor de telefonía móvil para más detalles sobre su plan.</p>
+
+        <h4>6. Palabras Clave para Cancelar y Ayuda</h4>
+        <p>Para cancelar el Programa en cualquier momento, responda a cualquier SMS de eBerry con una de las siguientes palabras clave:</p>
+        <p><strong>STOP · CANCELAR · UNSUBSCRIBE · END · QUIT · CANCEL · NO</strong></p>
+        <p>Recibirá una confirmación única de que ha sido dado de baja. No se enviarán más mensajes excepto según lo requiera la ley.</p>
+        <p>Para obtener ayuda, responda con una de: <strong>HELP · AYUDA · INFO</strong>. Recibirá información de contacto de asistencia.</p>
+        <p>Para volver a inscribirse después de cancelar, responda con JOIN, COMENZAR, START, SI o YES, o comuníquese con Recursos Humanos de eBerry para actualizar su consentimiento en archivo.</p>
+
+        <h4>7. Operadores Móviles</h4>
+        <p>Los operadores incluyendo AT&amp;T, Verizon, T-Mobile, Sprint, US Cellular y otros no son responsables por mensajes retrasados o no entregados.</p>
+
+        <h4>8. Privacidad</h4>
+        <p>El uso del Programa se rige por nuestra Política de Privacidad de SMS, arriba en esta página. No vendemos, alquilamos, arrendamos ni compartimos su número de teléfono móvil con terceros para marketing ni ningún otro propósito.</p>
+
+        <h4>9. Cambios a los Términos</h4>
+        <p>Podemos actualizar estos Términos de vez en cuando. La participación continua en el Programa después de los cambios constituye la aceptación de los Términos actualizados. La versión actual siempre está disponible en esta URL.</p>
+
+        <h4>10. Terminación del Programa</h4>
+        <p>eBerry Harvest se reserva el derecho de modificar, suspender o terminar el Programa en cualquier momento. Si el Programa termina, enviaremos una notificación final a todos los suscriptores activos.</p>
+
+        <h4>11. Ley Aplicable</h4>
+        <p>Estos Términos se rigen por las leyes del Estado de Georgia, Estados Unidos, sin tener en cuenta los principios de conflicto de leyes. Cualquier disputa que surja bajo estos Términos se resolverá en los tribunales estatales o federales ubicados en Atlanta, Georgia.</p>
+
+        <h4>12. Contáctenos</h4>
+        <p>Para preguntas sobre estos Términos o el Programa, comuníquese con:<br>
+        eBerry Harvest Company<br>
+        A la atención de: Recursos Humanos / Programa SMS<br>
+        Correo electrónico: <a href="mailto:cyndyhernandez@eberryharvest.com">cyndyhernandez@eberryharvest.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONTACT -->
+  <section id="contact">
+    <h2>8. Contact</h2>
+    <div class="id-card">
+      <strong>eBerry Harvest Company</strong><br>
+      Atlanta, Georgia, United States<br>
+      Email: <a href="mailto:cyndyhernandez@eberryharvest.com">cyndyhernandez@eberryharvest.com</a><br>
+      <em>For questions about the SMS program, opt-in, opt-out, or to access your consent record.</em>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 eBerry Harvest Company · Atlanta, Georgia · <a href="mailto:cyndyhernandez@eberryharvest.com">cyndyhernandez@eberryharvest.com</a>
+  <div class="small">SMS notifications delivered via Twilio. Consent records retained for 7 years post-employment per H-2A and TCPA recordkeeping requirements.</div>
+</footer>
+
+</body>
+</html>
